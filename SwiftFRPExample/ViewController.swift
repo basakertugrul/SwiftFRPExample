@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -31,6 +33,7 @@ class ViewController: UIViewController {
 
         Observable.combineLatest(emailValid, passwordValid) { $0 && $1 }
         .bind(to: self.signUpButton.rx.isEnabled)
+        .disposed(by: self.disposeBag)
     }
 
     func isValidEmail(_ email: String) -> Bool {
