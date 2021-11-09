@@ -18,11 +18,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        emailTextField.rx.text.map { text in
-            
-            let isEmailValid = self.isValidEmail(text!)
-            return isEmailValid
+        let emailValid = emailTextField.rx.text.map { text in
+            return self.isValidEmail(text!)
         }
+//        .bind(to: self.signUpButton.rx.isEnabled)
+    
+        let passwordValid = passwordTextField.rx.text.map { text in
+            
+            return self.isValidPassword(passwordStr: text!)
+        }
+//        .bind(to: self.signUpButton.rx.isEnabled)
+
+        Observable.combineLatest(emailValid, passwordValid) { $0 && $1 }
         .bind(to: self.signUpButton.rx.isEnabled)
     }
 
@@ -31,6 +38,10 @@ class ViewController: UIViewController {
 
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
+    }
+    
+    func isValidPassword(passwordStr: String) -> Bool {
+        return passwordStr.count >= 6
     }
 
 }
