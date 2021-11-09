@@ -16,21 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9A8-2o-gQN">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9A8-2o-gQN">
                                 <rect key="frame" x="20" y="126" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FMq-bE-ENe">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FMq-bE-ENe">
                                 <rect key="frame" x="20" y="233" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F25-qL-t4R">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F25-qL-t4R">
                                 <rect key="frame" x="170" y="352" width="75" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="1PH-zx-z1a"/>
+                                </constraints>
                                 <color key="tintColor" red="0.95294117649999999" green="0.67843137249999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Up">
@@ -40,7 +40,23 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9A8-2o-gQN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="6fR-cJ-aWN"/>
+                            <constraint firstItem="9A8-2o-gQN" firstAttribute="trailing" secondItem="FMq-bE-ENe" secondAttribute="trailing" id="NEr-GF-Ulx"/>
+                            <constraint firstItem="FMq-bE-ENe" firstAttribute="top" secondItem="9A8-2o-gQN" secondAttribute="bottom" constant="73" id="SfI-Vh-Eh6"/>
+                            <constraint firstItem="F25-qL-t4R" firstAttribute="top" secondItem="FMq-bE-ENe" secondAttribute="bottom" constant="85" id="W1i-Fg-lxS"/>
+                            <constraint firstItem="9A8-2o-gQN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="82" id="Yuk-VO-1Ev"/>
+                            <constraint firstItem="9A8-2o-gQN" firstAttribute="leading" secondItem="FMq-bE-ENe" secondAttribute="leading" id="dou-ed-dDL"/>
+                            <constraint firstItem="F25-qL-t4R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="170" id="lbt-J5-s4e"/>
+                            <constraint firstItem="9A8-2o-gQN" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="mWM-jf-G0J"/>
+                            <constraint firstItem="9A8-2o-gQN" firstAttribute="centerX" secondItem="F25-qL-t4R" secondAttribute="centerX" id="uWT-WR-gTX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="9A8-2o-gQN" id="DA6-ps-oO5"/>
+                        <outlet property="passwordTextField" destination="FMq-bE-ENe" id="mJY-8J-rdC"/>
+                        <outlet property="signUpButton" destination="F25-qL-t4R" id="5xo-x4-yU0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
